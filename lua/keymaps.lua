@@ -58,3 +58,6 @@ map('t', '<Esc>', '<C-\\><C-n>', default_opts)
 --   lvim.builtin.telescope.defaults.mappings.n["<C-k>"] = actions.move_selection_previous
 -- end
 
+-- Move Between Tabs
+lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
+lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
