@@ -13,13 +13,7 @@ LunarVim configuratin file
 
 require('settings')
 require('keymaps')
--- require('plugins.luasnips')
--- Snippets from LuaSnips
--- require('snippets.init')
-
--- lvim.builtin.luasnip.sources = textstuff
-local ls = require('luasnip')
-ls.config.setup({ enable_autosnippets = true })
+require('plugins')
 
 lvim.plugins = {
     { "voldikss/vim-floaterm" },
@@ -36,4 +30,8 @@ lvim.plugins = {
         config = function() require "lsp_signature".on_attach() end,
         event = "InsertEnter"
     },
+
+    -- Remote-sshfs
+    {'nosduco/remote-sshfs.nvim'}
 }
+
