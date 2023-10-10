@@ -32,6 +32,16 @@ lvim.plugins = {
     },
 
     -- Remote-sshfs
-    {'nosduco/remote-sshfs.nvim'}
+    {'nosduco/remote-sshfs.nvim'},
+
+    -- Markdown Preview
+    -- You must install glow globally
+    -- https://github.com/charmbracelet/glow
+    -- yay -S glow
+    {
+      "npxbr/glow.nvim",
+      ft = {"markdown"}
+      -- build = "yay -S glow"
+    },
 }
 
