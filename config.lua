@@ -43,4 +43,10 @@ lvim.plugins = {
             vim.g.mkdp_auto_start = 1
         end,
     },
+
+    -- LatexLive Compile
+    { "lervag/vimtex" },
+
+    -- -- Remember last Cursor Position:
+    { "farmergreg/vim-lastplace" }
 }
