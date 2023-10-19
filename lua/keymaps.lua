@@ -120,12 +120,22 @@ cmp.setup({
         -- 	"c",
         -- }),
         ["<C-l>"] = cmp.mapping(function(fallback)
-            if luasnip.expand_or_jumpable() then
-                vim.fn.feedkeys(t("<Plug>luasnip-expand-or-jump"), "")
-            elseif neogen.jumpable() then
-                vim.fn.feedkeys(t("<cmd>lua require('neogen').jump_next()<CR>"), "")
-            else
-                fallback()
+            if luasnip.jumpable() then
+                vim.fn.feedkeys(t("<Plug>luasnip-jump-next"), "")
+                -- elseif neogen.jumpable() then
+                --     vim.fn.feedkeys(t("<cmd>lua require('neogen').jump_next()<CR>"), "")
+                -- else
+                --     fallback()
+            end
+        end, {
+            "i",
+            "s",
+        }),
+        ["<C-;>"] = cmp.mapping(function(fallback)
+            if luasnip.expandable() then
+                vim.fn.feedkeys(t("<Plug>luasnip-expand-snippet"), "")
+                -- else
+                --     pass --fallback()
             end
         end, {
             "i",
