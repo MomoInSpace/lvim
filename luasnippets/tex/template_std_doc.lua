@@ -2,10 +2,10 @@
 -- # vim: foldmarker=({{,}})
 
 -- some shorthands...
-local ls = require("luasnip")
-local s = ls.snippet
+local ls                    = require("luasnip")
+local s                     = ls.snippet
 --local sn = ls.snippet_node
-local t = ls.text_node
+local t                     = ls.text_node
 --local i = ls.insert_node
 --local f = ls.function_node
 --local c = ls.choice_node
@@ -21,24 +21,24 @@ local t = ls.text_node
 --local fmta = require("luasnip.extras.fmt").fmta
 --local types = require("luasnip.util.types")
 --local conds = require("luasnip.extras.expand_conditions")
-local parse = ls.parser.parse_snippet
+local parse                 = ls.parser.parse_snippet
 
-local utils = require("luasniputils.utils")
+local utils                 = require("luasniputils.utils")
 --local ts_utils = require("luasniputils.ts_utils")
 --local pipe = utils.pipe
-local is_math = utils.with_opts(utils.is_math, true)
-local not_math = utils.with_opts(utils.not_math, true)
+local is_math               = utils.with_opts(utils.is_math, true)
+local not_math              = utils.with_opts(utils.not_math, true)
 --local no_backslash = utils.no_backslash
 
-local auto_luasnippets = {}
-local tab_luasnippets = {}
+local auto_luasnippets      = {}
+local tab_luasnippets       = {}
 
 --# Start of Snippets -----------------------------------------({{
 
 -- Tab------------------
-local document_template_tab  = {
-	parse({trig = "latexdoc", name = "template for latex document"},
-	[[
+local document_template_tab = {
+    parse({ trig = "latexdoc", name = "template for latex document" },
+        [[
 	% Preamble
 	% Document Class
 	\documentclass[11pt, oneside, headsepline=on, parskip=half, numbers=enddot, intlimits]{scrbook} % Explanation see below.
@@ -221,30 +221,32 @@ local document_template_tab  = {
 	]]),
 }
 for _, snip in ipairs(document_template_tab) do
-	snip.wordTrig = false
-	table.insert(tab_luasnippets,snip)
+    snip.wordTrig = false
+    table.insert(tab_luasnippets, snip)
 end
 
 -- Auto -----------------
-local document_template_auto  = {
+local document_template_auto = {
 }
 
 for _, snip in ipairs(document_template_auto) do
-	snip.condition = is_math--pipe({ is_math })
-	snip.show_condition = is_math
-	snip.wordTrig = false
-	table.insert(auto_luasnippets,snip)
+    snip.condition = is_math --pipe({ is_math })
+    snip.show_condition = is_math
+    snip.wordTrig = false
+    table.insert(auto_luasnippets, snip)
 end
 
 -- }})
 
-ls.add_luasnippets("tex",tab_luasnippets, {
-	default_priority = 0,
-	key = "document_template_tab"
-})
+-- ls.add_luasnippets("tex", tab_luasnippets, {
+--     default_priority = 0,
+--     key = "document_template_tab"
+-- })
 
-ls.add_luasnippets("tex",auto_luasnippets, {
-	default_priority = 0,
-	type = "autoluasnippets",
-	key = "document_template_auto"
-})
+-- ls.add_luasnippets("tex", auto_luasnippets, {
+--     default_priority = 0,
+--     type = "autoluasnippets",
+--     key = "document_template_auto"
+-- })
+
+return document_template_tab, {}
