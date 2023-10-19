@@ -35,11 +35,15 @@ lvim.builtin.treesitter.highlight.enabled = true
 -----------------------------------------------------------
 -- Neovim API aliases
 -----------------------------------------------------------
-local cmd = vim.cmd     		-- execute Vim commands
-local exec = vim.api.nvim_exec 	-- execute Vimscript
-local fn = vim.fn       		-- call Vim functions
-local g = vim.g         		-- global variables
-local opt = vim.opt         	-- global/buffer/windows-scoped options
+local cmd = vim.cmd            -- execute Vim commands
+local exec = vim.api.nvim_exec -- execute Vimscript
+local fn = vim.fn              -- call Vim functions
+local g = vim.g                -- global variables
+local opt = vim.opt            -- global/buffer/windows-scoped options
+
+-- Spelling:
+vim.opt.spelllang = 'en_us'
+vim.opt.spell = true
 
 -----------------------------------------------------------
 -- General
@@ -53,18 +57,18 @@ opt.linebreak = true          -- don't split words
 -----------------------------------------------------------
 -- Neovim UI
 -----------------------------------------------------------
-opt.syntax = 'enable'         -- enable syntax highlighting
-opt.number = true             -- show line number
-opt.showmatch = true          -- highlight matching parenthesis
-opt.relativenumber = true     -- show relative distance between rows
-opt.scrolloff = 10            -- keep 10 row buffer on screen edges
-opt.foldmethod = 'marker'     -- enable folding (default 'foldmarker')
-opt.colorcolumn = '120'        -- line length marker at 80 columns
-opt.splitright = true         -- vertical split to the right
-opt.splitbelow = true         -- horizontal split to the bottom
-opt.ignorecase = true         -- ignore case letters when search
-opt.smartcase = true          -- ignore lowercase for the whole pattern
-opt.hlsearch = false          -- remove highlighting after search
+opt.syntax = 'enable'     -- enable syntax highlighting
+opt.number = true         -- show line number
+opt.showmatch = true      -- highlight matching parenthesis
+opt.relativenumber = true -- show relative distance between rows
+opt.scrolloff = 10        -- keep 10 row buffer on screen edges
+opt.foldmethod = 'marker' -- enable folding (default 'foldmarker')
+opt.colorcolumn = '120'   -- line length marker at 80 columns
+opt.splitright = true     -- vertical split to the right
+opt.splitbelow = true     -- horizontal split to the bottom
+opt.ignorecase = true     -- ignore case letters when search
+opt.smartcase = true      -- ignore lowercase for the whole pattern
+opt.hlsearch = false      -- remove highlighting after search
 
 -- highlight on yank
 exec([[
@@ -80,20 +84,20 @@ cmd [[:command Termy belowright 10split | terminal]]
 -----------------------------------------------------------
 -- Memory, CPU
 -----------------------------------------------------------
-opt.hidden = true         -- enable background buffers
-opt.history = 100         -- remember n lines in history
-opt.lazyredraw = true     -- faster scrolling
-opt.synmaxcol = 240       -- max column for syntax highlight
+opt.hidden = true     -- enable background buffers
+opt.history = 100     -- remember n lines in history
+opt.lazyredraw = true -- faster scrolling
+opt.synmaxcol = 240   -- max column for syntax highlight
 
 -----------------------------------------------------------
 -- Colorscheme
 -----------------------------------------------------------
-opt.termguicolors = true      -- enable 24-bit RGB colors
+opt.termguicolors = true -- enable 24-bit RGB colors
 
 -----------------------------------------------------------
 -- Tabs, indent
 -----------------------------------------------------------
-opt.expandtab = true      -- use spaces instead of tabs
-opt.shiftwidth = 4        -- shift 4 spaces when tab
-opt.tabstop = 4           -- 1 tab == 4 spaces
-opt.smartindent = true    -- autoindent new lines
+opt.expandtab = true   -- use spaces instead of tabs
+opt.shiftwidth = 4     -- shift 4 spaces when tab
+opt.tabstop = 4        -- 1 tab == 4 spaces
+opt.smartindent = true -- autoindent new lines
