@@ -19,7 +19,6 @@ lvim.lint_on_save = true
 lvim.builtin.terminal.active = true
 -- lvim.builtin.notify.active = true Deprecated
 lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.setup.open_on_setup = true
 lvim.builtin.nvimtree.setup.filters.dotfiles = false
 lvim.line_wrap_cursor_movement = false
 
