@@ -48,5 +48,34 @@ lvim.plugins = {
     { "lervag/vimtex" },
 
     -- -- Remember last Cursor Position:
-    { "farmergreg/vim-lastplace" }
+    { "farmergreg/vim-lastplace" },
+
+    -- Rainbow parenthesis
+    { "HiPhish/rainbow-delimiters.nvim" },
+
+    -- Personal Wiki:
+    -- { "vimwiki/vimwiki" }
+    { "lervag/wiki.vim" }
+}
+
+-- vim.g.vimtex_compiler_latexmk.build_dir = ".tex"
+
+-- vim.g.vimtex_compiler_method = 'latexmk' -- Set the compiler method to latexmk
+-- vim.g.vimtex_compiler_latexmk = {
+--     build_dir = 'build',                 -- Set the build directory to a desired subfolder
+-- }
+
+vim.g.vimtex_compiler_latexmk = {
+    aux_dir = '.tex_aux',
+    out_dir = 'tex_pdf',
+    callback = 1,
+    continuous = 1,
+    executable = 'latexmk',
+    hooks = {},
+    options = {
+        '-verbose',
+        '-file-line-error',
+        '-synctex=1',
+        '-interaction=nonstopmode',
+    },
 }

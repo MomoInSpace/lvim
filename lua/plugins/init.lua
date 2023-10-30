@@ -3,4 +3,4 @@
 
 require('plugins.remote')
 require('plugins.luasnips')
-
+require('plugins.wikivim')

@@ -175,6 +175,8 @@ local document_template_tab = {
 	%%%%%%%%%%
 
 	\begin{document}
+        \title{ $1}
+        \author{ $2 }
 
 		\renewcommand*{\partpagestyle}{empty}
 
@@ -196,6 +198,8 @@ local document_template_tab = {
 			\vspace{2cm}
 			{\Large Winter Term 2021/2022, Version of \today \par}
 			\vspace{1cm}
+			{\Large By $2 \par}
+			\vspace{1cm}
 			%\includegraphics[width=\textwidth]{Images/title_cosine}
 			\vfill
 		\end{titlepage}
@@ -205,7 +209,7 @@ local document_template_tab = {
 		\cleardoubleoddpage
 		\pagenumbering{arabic}
 
-	\part{$2}
+	\part{$3}
 		$0,
 	\\appendix,
 	%\\begin{appendices},
