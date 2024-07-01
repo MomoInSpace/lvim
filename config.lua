@@ -11,10 +11,16 @@ LunarVim configuratin file
 
 --]]
 
+-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+-- If treesitter doesn't work, you need pacman -S tree-sitter-cli
+-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 require('settings')
+require("nvim-treesitter.health").check()
 require('keymaps')
 require('plugins')
-
+require("lsvars")
+--
 lvim.plugins = {
     { "voldikss/vim-floaterm" },
 
@@ -55,16 +61,31 @@ lvim.plugins = {
 
     -- Personal Wiki:
     -- { "vimwiki/vimwiki" }
-    { "lervag/wiki.vim" }
+    { "lervag/wiki.vim" },
+
+    -- Fortran Coding
+    { "rudrab/vimf90" },
+    { "pseewald/fprettify" }
 }
 
 -- vim.g.vimtex_compiler_latexmk.build_dir = ".tex"
-
--- vim.g.vimtex_compiler_method = 'latexmk' -- Set the compiler method to latexmk
 -- vim.g.vimtex_compiler_latexmk = {
---     build_dir = 'build',                 -- Set the build directory to a desired subfolder
+-- build_dir = 'build',                 -- Set the build directory to a desired subfolder
 -- }
-
+--
+-- require 'lspconfig'.fortls.setup {}
+require 'lspconfig'.fortls.setup {
+    cmd = {
+        'fortls',
+        '--lowercase_intrisics',
+        '--hover_signature',
+        '--hover_language=fortran',
+        '--use_signature_help',
+        '--formatting.arrangeSection=alignVariables'
+    }
+}
+--
+vim.g.vimtex_compiler_method = 'latexmk' -- Set the compiler method to latexmk
 vim.g.vimtex_compiler_latexmk = {
     aux_dir = '.tex_aux',
     out_dir = 'tex_pdf',
@@ -79,3 +100,10 @@ vim.g.vimtex_compiler_latexmk = {
         '-interaction=nonstopmode',
     },
 }
+
+vim.cmd([[
+  augroup filetype_cuf
+    autocmd!
+    autocmd BufRead,BufNewFile *.cuf setfiletype fortran
+  augroup END
+]])

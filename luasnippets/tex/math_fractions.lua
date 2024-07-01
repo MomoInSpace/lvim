@@ -1,24 +1,12 @@
 -- # vim: foldmethod=marker
 -- # vim: foldmarker=({{,}})
 
--- some shorthands...
-local utils = require("luasniputils.utils")
---local ts_utils = require("luasniputils.ts_utils")
-local pipe = utils.pipe
-local is_math = utils.with_opts(utils.is_math, true)
-local not_math = utils.with_opts(utils.not_math, true)
-local no_backslash = utils.no_backslash
-
+local s                = MyLuaSnipConfig.bm
+local t                = MyLuaSnipConfig.t
+local f                = MyLuaSnipConfig.f
 local auto_luasnippets = {}
--- local tab_luasnippets = {}
 
--- local ls = require("luasnip")
--- local s = ls.snippet
--- local f = ls.function_node
--- local i = ls.insert_node
--- local t = ls.text_node
-
-local frac_no_parens = {
+local frac_no_parens   = {
     f(function(_, snip)
         return string.format("\\frac{%s}", snip.captures[1])
     end, {}),
@@ -28,7 +16,7 @@ local frac_no_parens = {
     i(0),
 }
 
-local frac = s({
+local frac             = s({
     priority = 1000,
     trig = ".*%)/",
     wordTrig = true,
@@ -67,7 +55,7 @@ local frac = s({
     i(0),
 })
 
-local math_wrA = {
+local math_wrA         = {
     frac,
 
     s({
@@ -120,25 +108,7 @@ local math_wrA = {
     }, t("Assigned Chaos at Birth")),
 }
 
--- for _, snip in ipairs(frac_no_parens) do
---     snip.condition = pipe({ is_math, no_backslash })
---     snip.show_condition = is_math
---     -- snip.wordTrig = false
---     table.insert(auto_luasnippets, snip)
--- end
-
--- for _, snip in ipairs(frac) do
---     snip.condition = pipe({ is_math, no_backslash })
---     snip.show_condition = is_math
---     -- snip.wordTrig = false
---     table.insert(auto_luasnippets, snip)
--- end
-
 for _, snip in ipairs(math_wrA) do
-    snip.condition = pipe({ is_math, no_backslash })
-    snip.show_condition = is_math
-    snip.wordTrig = true
-    snip.regTrig = true
     table.insert(auto_luasnippets, snip)
 end
 
