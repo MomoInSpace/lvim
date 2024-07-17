@@ -58,6 +58,14 @@ MyLuaSnipConfig    = {
             regTrig = true,
             priority = 1
         }),
+    parse_bm     = ls.extend_decorator.apply(ls.parser.parse_snippet,
+        {
+            condition = pipe({ in_mathzone, no_backslash }),
+            show_condition = pipe({ in_mathzone, no_backslash }),
+            wordTrig = false,
+            regTrig = true,
+            priority = 1
+        }),
 }
 
 return MyLuaSnipConfig
